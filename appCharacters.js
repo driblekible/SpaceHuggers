@@ -412,7 +412,7 @@ class Enemy extends Character
         {
             this.color = new Color(.7,0,1);
             this.eyeColor = new Color(0,0,0);
-            this.grenadeCount = 3;
+            this.grenadeCount = 99999;
             this.canBurn = 0;
         }
 
