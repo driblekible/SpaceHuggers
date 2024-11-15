@@ -42,7 +42,7 @@ const resetGame=()=>
 {
     levelEndTimer.unset();
     gameTimer.set(totalKills = level = 0);
-    nextLevel(playerLives = 6);
+    nextLevel(playerLives = 100);
 }
 
 function buildTerrain(size)
