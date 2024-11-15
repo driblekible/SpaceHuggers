@@ -673,7 +673,7 @@ class Player extends Character
     { 
         super(pos);
 
-        this.grenadeCount = 3;
+        this.grenadeCount = 99999;
         this.burnTime = 2;
         
         this.eyeColor = (new Color).setHSLA(-playerIndex*.6,1,.5);
