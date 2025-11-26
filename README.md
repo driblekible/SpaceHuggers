@@ -24,6 +24,17 @@ Good luck, have fun, and give space a hug for me.
 - For an optimal play experience please use Chrome in full screen mode
 - There is no end, but for a challenge, try beating the first 5 levels
 
+# '~' Menu
+- New thing found out by me that doesn't work in the repo this was forked from - If you press the '~' key then the game will:
+- Shows a menu with some technical things - AND a option reading 'God Mode'. Press the corresponding number's key to the number on the list
+- God mode makes you invincible with infinite grenades - AND:
+- Q key spawns random enemy types - depends on your level
+- E key spawns a explosion - comparable to grenades
+- T key spawns a random block - i.e. green explosive, lava, metal, etc
+- Y key makes blue particles coalesce on the ground from wherever mouse was when Y key was clicked - looks nice but causes some lag
+- M key randomly moves you a few blocks in the direction you are facing - not very sure what purpose of this is
+- 
+
 # Gameplay Tips
 - Roll to put out fire!
 - Rolling also does melee damage to enemies
