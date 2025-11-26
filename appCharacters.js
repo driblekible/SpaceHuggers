@@ -361,7 +361,9 @@ const type_normal = 1;
 const type_strong = 2;
 const type_elite  = 3;
 const type_grenade= 4;
-const type_count  = 5;
+const type_abyssal =  5;
+const type_count =  6;
+
 
 function alertEnemies(pos, playerPos)
 {
@@ -415,6 +417,17 @@ class Enemy extends Character
             this.grenadeCount = 99999;
             this.canBurn = 0;
         }
+        else if (this.type == type_abyssal)
+        {
+            this.color = new Color(0,0,0);        // pure black body
+            this.eyeColor = new Color(0.5,0,0);   // dark red eyes
+            this.size = this.size.scale(this.sizeScale = 2.5); // large size
+            health = 50;                          // custom HP for abyss type
+            this.grenadeCount = 99999;
+            this.canBurn = 0;
+            this.maxVisionRange = 30;             // optional: stronger vision
+        }    
+
 
         if (this.isBig = randSeeded() < .05)
         {
@@ -617,7 +630,15 @@ class Enemy extends Character
             this.pressedJumpTimer.unset();
             this.holdJumpTimer.unset();
         }
+        //if (this.type == type_abyss) 
+        //{
+        //    this.holdingShoot = true;   // Abyss always auto‑fires
+        //} 
+        //else 
+        //{
         this.holdingShoot = this.shootTimer.active();
+        //}
+
         this.holdingJump = this.holdJumpTimer.active();
 
         super.update();
@@ -816,3 +837,4 @@ class Player extends Character
         }
     }
 }
+
