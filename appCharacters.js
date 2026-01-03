@@ -362,7 +362,8 @@ const type_strong = 2;
 const type_elite  = 3;
 const type_grenade= 4;
 const type_abyssal =  5;
-const type_count =  6;
+const type_god = 6;
+const type_count =  7;
 
 
 function alertEnemies(pos, playerPos)
@@ -417,19 +418,32 @@ class Enemy extends Character
             this.grenadeCount = 99999;
             this.canBurn = 0;
         }
-        else if (this.type == type_abyssal)
+        if (this.type == type_abyssal)
         {
             this.color = new Color(0,0,0);        // pure black body
             this.eyeColor = new Color(0.5,0,0);   // dark red eyes
-            this.size = this.size.scale(this.sizeScale = 2.5); // large size
             health = 50;                          // custom HP for abyss type
             this.grenadeCount = 99999;
             this.canBurn = 0;
             this.maxVisionRange = 30;             // optional: stronger vision
         }    
+            
+        else if (this.type == type_god)
+        {
+            this.color = new Color(12,12,12);        // pure black body
+            this.eyeColor = new Color(0,0,0);   // dark red eyes
+            health = 1000;                          // custom HP for god type
+            this.grenadeCount = 99999;
+            this.canBurn = 0;
+            this.maxVisionRange = 100;             // optional: stronger vision
+
+            this.isBig = 1; 
+            this.size = this.size.scale(this.sizeScale = 1.3); 
+            health *= 2;
+        }    
 
 
-        if (this.isBig = randSeeded() < .05)
+        if (this.type != type_god && (this.isBig = randSeeded() < .05))
         {
             // chance of large enemy with extra health
             this.size = this.size.scale(this.sizeScale = 1.3);
@@ -837,4 +851,5 @@ class Player extends Character
         }
     }
 }
+
 
