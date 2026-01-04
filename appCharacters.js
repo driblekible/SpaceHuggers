@@ -442,7 +442,7 @@ class Enemy extends Character
         {
             this.color = new Color(12,12,12);        // pure black body
             this.eyeColor = new Color(0,0,0);   // dark red eyes
-            health = 1000;                          // custom HP for god type
+            health = 250;                          // custom HP for god type
             this.grenadeCount = 99999;
             this.canBurn = 0;
             this.maxVisionRange = 100;             // optional: stronger vision
@@ -861,6 +861,7 @@ class Player extends Character
         }
     }
 }
+
 
 
 
