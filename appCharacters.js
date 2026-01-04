@@ -372,6 +372,7 @@ function alertEnemies(pos, playerPos)
     forEachObject(pos, radius, (o)=>{o.team == team_enemy && o.alert && o.alert(playerPos)});
     debugAI && debugCircle(pos, radius, '#0ff6');
 }
+let enemiesSinceLastGod = 0;
 
 class Enemy extends Character
 {
@@ -388,6 +389,15 @@ class Enemy extends Character
         this.maxVisionRange = 12;
 
         this.type = randSeeded()**3*min(level+1,type_count)|0;
+        // Track enemies since last god
+        enemiesSinceLastGod++;
+
+        // ~1/150 chance, but guaranteed by 300
+        if (level >= 5 && (enemiesSinceLastGod >= 300 || randSeeded() < 1/150)) {
+            this.type = type_god;
+            enemiesSinceLastGod = 0; // reset counter
+        }
+
 
         let health = 1 + this.type;
         this.eyeColor = new Color(1,.5,0);
@@ -851,5 +861,6 @@ class Player extends Character
         }
     }
 }
+
 
 
